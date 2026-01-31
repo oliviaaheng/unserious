@@ -1,0 +1,42 @@
+---
+interface Props {
+  public?: boolean;
+}
+
+const { public: isPublic = false } = Astro.props;
+---
+
+<nav class="flex items-center justify-between px-5 py-4 sm:px-8 lg:px-14">
+  <a href="/" class="font-['Fraunces'] text-xl font-semibold text-[#2b2623]">
+    Unserious
+  </a>
+  <div id="navbar-auth"></div>
+</nav>
+
+<script>
+  import { getUser, clearUser } from "../scripts/auth";
+
+  const container = document.getElementById("navbar-auth");
+  if (!container) throw new Error("navbar-auth container not found");
+
+  const user = getUser();
+
+  if (user) {
+    const btn = document.createElement("button");
+    btn.textContent = "Sign out";
+    btn.className =
+      "rounded-full border border-[#d4c4b5] bg-white/60 px-4 py-1.5 text-sm font-medium text-[#5e4b41] transition hover:bg-white";
+    btn.addEventListener("click", () => {
+      clearUser();
+      window.location.href = "/login";
+    });
+    container.appendChild(btn);
+  } else {
+    const link = document.createElement("a");
+    link.href = "/login";
+    link.textContent = "Sign in";
+    link.className =
+      "rounded-full border border-[#d4c4b5] bg-white/60 px-4 py-1.5 text-sm font-medium text-[#5e4b41] transition hover:bg-white";
+    container.appendChild(link);
+  }
+</script>
