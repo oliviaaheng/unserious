@@ -9,9 +9,10 @@ import "../styles/global.css";
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<slot name="head" />
 		<title>Unserious</title>
 	</head>
-	<body>
-        <slot />
+	<body class="min-h-screen bg-[radial-gradient(circle_at_top,_#f7efe8,_#f0e4d6_45%,_#e4d3c0_100%)] font-['Space_Grotesk'] text-[#2b2623] antialiased">
+		<slot />
 	</body>
 </html>

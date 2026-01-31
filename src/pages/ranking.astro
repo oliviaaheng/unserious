@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ActivityCard from "../components/ActivityCard.astro";
+import PairDivider from "../components/PairDivider.astro";
+import ComparisonCounter from "../components/ComparisonCounter.astro";
+import ResetButton from "../components/ResetButton.astro";
+import activities from "../../providence_activities.json";
+
+const serializedActivities = JSON.stringify(activities);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <main
+    class="min-h-screen px-5 pb-12 pt-10 sm:px-8 lg:px-14"
+    data-activities={serializedActivities}
+  >
+    <div class="mx-auto flex max-w-5xl flex-col gap-8">
+      <PageHeader
+        label="Destination Picks"
+        title="What do you prefer?"
+        description="Two quick choices at a time. We'll learn your favorites as you go."
+      />
+
+      <section
+        class="relative grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8"
+        aria-live="polite"
+        data-pair
+      >
+        <ActivityCard choice="a" />
+        <PairDivider />
+        <ActivityCard choice="b" />
+      </section>
+
+      <footer class="flex flex-col gap-4">
+        <ComparisonCounter />
+        <ResetButton />
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    import "../scripts/ranking";
+  </script>
+
+</Layout>

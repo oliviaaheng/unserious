@@ -1,0 +1,23 @@
+---
+interface Props {
+  choice: "a" | "b";
+}
+
+const { choice } = Astro.props;
+---
+
+<button
+  class="group flex h-[340px] w-full flex-col overflow-hidden rounded-2xl bg-[#fff7f0] text-left shadow-lg transition duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9b6a4] sm:h-[360px] lg:h-[390px]"
+  type="button"
+  data-choice={choice}
+  data-card
+>
+  <div class="h-52 w-full bg-cover bg-center sm:h-56 lg:h-64" data-image></div>
+  <div class="grid flex-1 gap-1 px-5 pb-4 pt-4">
+    <h2 class="text-lg font-semibold text-[#2b2623]" data-title></h2>
+    <p
+      class="text-xs font-semibold uppercase tracking-[0.18em] text-[#8d7666]"
+      data-address
+    ></p>
+  </div>
+</button>
