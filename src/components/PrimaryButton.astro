@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  type?: "button" | "submit" | "reset";
+}
+
+const { label, type = "button" } = Astro.props;
+---
+
+<button
+  type={type}
+  class="inline-flex items-center justify-center rounded-full bg-[#d9824c] px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white shadow-[0_12px_28px_-18px_rgba(86,45,18,0.8)] transition hover:-translate-y-0.5 hover:bg-[#c7723b] hover:shadow-[0_16px_32px_-20px_rgba(86,45,18,0.9)] focus:outline-none focus:ring-2 focus:ring-[#e6b587]"
+>
+  {label}
+</button>

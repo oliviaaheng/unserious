@@ -1,0 +1,36 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  name: string;
+  placeholder?: string;
+  type?: "text" | "search" | "email" | "tel" | "url" | "date";
+  hint?: string;
+  autocomplete?: string;
+}
+
+const {
+  id,
+  label,
+  name,
+  placeholder = "",
+  type = "text",
+  hint,
+  autocomplete,
+} = Astro.props;
+---
+
+<div class="flex min-w-0 flex-col gap-2">
+  <label class="text-sm font-semibold text-[#4a3c34]" for={id}>
+    {label}
+  </label>
+  <input
+    id={id}
+    name={name}
+    type={type}
+    placeholder={placeholder}
+    autocomplete={autocomplete}
+    class="w-full rounded-2xl border border-[#e7d9ca] bg-white/80 px-4 py-3 text-sm text-[#2b2623] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] placeholder:text-[#a08a7c] focus:border-[#cf9c5a] focus:outline-none focus:ring-2 focus:ring-[#f0d1a8]"
+  />
+  {hint ? <p class="text-xs text-[#7a665a]">{hint}</p> : null}
+</div>

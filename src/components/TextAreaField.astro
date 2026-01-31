@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  name: string;
+  placeholder?: string;
+  hint?: string;
+  rows?: number;
+}
+
+const { id, label, name, placeholder = "", hint, rows = 4 } = Astro.props;
+---
+
+<div class="flex min-w-0 flex-col gap-2">
+  <label class="text-sm font-semibold text-[#4a3c34]" for={id}>
+    {label}
+  </label>
+  <textarea
+    id={id}
+    name={name}
+    rows={rows}
+    placeholder={placeholder}
+    class="w-full resize-none rounded-2xl border border-[#e7d9ca] bg-white/80 px-4 py-3 text-sm text-[#2b2623] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] placeholder:text-[#a08a7c] focus:border-[#cf9c5a] focus:outline-none focus:ring-2 focus:ring-[#f0d1a8]"
+  ></textarea>
+  {hint ? <p class="text-xs text-[#7a665a]">{hint}</p> : null}
+</div>
