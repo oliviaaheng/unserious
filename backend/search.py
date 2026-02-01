@@ -122,9 +122,8 @@ class Itinerary(BaseModel):
     events: list[EventEntry]
 
 
-def itinerary(
-        constraints: Constraints,
-        event_preferences: list[dict]) -> Optional[Itinerary]:
+def itinerary(constraints: Constraints,
+              event_preferences: list[dict]) -> Optional[Itinerary]:
     event_preferences = sorted(event_preferences,
                                key=lambda x: x["score"],
                                reverse=True)
@@ -152,4 +151,8 @@ def itinerary(
         ],
         text_format=Itinerary,
     )
+    if response.output_parsed:
+        # set all pictures to empty list
+        for event_entry in response.output_parsed.events:
+            event_entry.pictures = []
     return response.output_parsed

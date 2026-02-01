@@ -234,6 +234,11 @@ function renderPair(pair: [Activity, Activity], cards: HTMLElement[]) {
     const title = card.querySelector<HTMLElement>("[data-title]");
     const address = card.querySelector<HTMLElement>("[data-address]");
     const image = card.querySelector<HTMLElement>("[data-image]");
+    const category = card.querySelector<HTMLElement>("[data-category]");
+    const cost = card.querySelector<HTMLElement>("[data-cost]");
+    const website = card.querySelector<HTMLAnchorElement>("[data-website]");
+    const websiteWrapper = card.querySelector<HTMLElement>("[data-website-wrapper]");
+    const description = card.querySelector<HTMLElement>("[data-description]");
     if (!activity || !title || !address || !image) {
       return;
     }
@@ -241,6 +246,41 @@ function renderPair(pair: [Activity, Activity], cards: HTMLElement[]) {
     address.textContent = activity.address;
     image.style.backgroundImage = `url(${getImageUrl(activity)})`;
     image.setAttribute("aria-label", `${activity.name} photo`);
+
+    if (category) {
+      const cat = (activity as any).category;
+      if (cat) {
+        category.textContent = cat;
+        category.classList.remove("hidden");
+      } else {
+        category.classList.add("hidden");
+      }
+    }
+
+    if (cost) {
+      const c = (activity as any).cost;
+      cost.textContent = c ? `💲 ${c}` : "";
+    }
+
+    if (website && websiteWrapper) {
+      const url = (activity as any).website;
+      if (url) {
+        try {
+          website.textContent = new URL(url).hostname;
+        } catch {
+          website.textContent = url;
+        }
+        website.setAttribute("href", url);
+        websiteWrapper.classList.remove("hidden");
+      } else {
+        websiteWrapper.classList.add("hidden");
+      }
+    }
+
+    if (description) {
+      const desc = (activity as any).description;
+      description.textContent = desc ?? "";
+    }
   });
 }
 
