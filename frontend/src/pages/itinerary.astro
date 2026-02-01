@@ -48,7 +48,7 @@ import PageHeader from "../components/PageHeader.astro";
   </main>
 
   <script>
-    import { fetchItinerary, uploadItinerary, type Itinerary, type ItineraryEvent } from "../scripts/api";
+    import { addPhoto, fetchItinerary, uploadItinerary, type Itinerary, type ItineraryEvent } from "../scripts/api";
     import { getUser } from "../scripts/auth";
 
     const loadingEl = document.getElementById("itinerary-loading")!;
@@ -58,7 +58,7 @@ import PageHeader from "../components/PageHeader.astro";
     const saveBtn = document.getElementById("save-itinerary-btn") as HTMLButtonElement;
 
     const params = new URLSearchParams(window.location.search);
-    const savedId = params.get("id");
+    let savedId = params.get("id");
 
     let itinerary: Itinerary | null = null;
     let isSaved = !!savedId;
@@ -111,9 +111,35 @@ import PageHeader from "../components/PageHeader.astro";
       }
     }
 
+    function readFileAsDataUrl(file: File): Promise<string> {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = () => reject(new Error("Failed to read file."));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function updateGallery(galleryEl: HTMLElement, pictures: string[]) {
+      galleryEl.innerHTML = "";
+      if (!pictures.length) {
+        galleryEl.classList.add("hidden");
+        return;
+      }
+      galleryEl.classList.remove("hidden");
+      pictures.forEach((url) => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Attached photo";
+        img.className =
+          "h-20 w-28 flex-shrink-0 rounded-2xl border border-white/70 object-cover shadow-[0_10px_30px_-20px_rgba(53,36,24,0.8)]";
+        galleryEl.appendChild(img);
+      });
+    }
+
     function renderTimeline(events: ItineraryEvent[]) {
       timelineEl.innerHTML = "";
-      events.forEach((entry) => {
+      events.forEach((entry, index) => {
         const ev = entry.event;
         const card = document.createElement("div");
         card.className =
@@ -125,6 +151,7 @@ import PageHeader from "../components/PageHeader.astro";
           <div class="flex flex-wrap items-center gap-3">
             <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#7f6b5c]">${timeRange}</span>
             ${ev.category ? `<span class="rounded-full bg-[#f4e7db] px-3 py-0.5 text-xs font-semibold text-[#5e4b41]">${ev.category}</span>` : ""}
+            <span class="camera-slot ml-auto"></span>
           </div>
           <h2 class="font-['Fraunces'] text-xl sm:text-2xl">${ev.name}</h2>`;
 
@@ -144,6 +171,59 @@ import PageHeader from "../components/PageHeader.astro";
         }
 
         card.innerHTML = html;
+
+        const cameraSlot = card.querySelector(".camera-slot") as HTMLElement;
+        const cameraBtn = document.createElement("button");
+        cameraBtn.type = "button";
+        cameraBtn.className =
+          "inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#e2d4c6] text-[#7f6b5c] transition hover:-translate-y-0.5 hover:bg-[#f4e7db]/80 hover:text-[#5e4b41] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9824c]/60";
+        cameraBtn.setAttribute("aria-label", "Attach a photo");
+        cameraBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+            <path d="M4 7h3l2-3h6l2 3h3v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+            <circle cx="12" cy="13" r="3.2" />
+          </svg>
+        `;
+        cameraSlot.replaceWith(cameraBtn);
+
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.capture = "environment";
+        fileInput.className = "hidden";
+
+        const gallery = document.createElement("div");
+        gallery.className = "hidden flex items-center gap-3 overflow-x-auto pt-2";
+
+        entry.pictures = entry.pictures ?? [];
+        updateGallery(gallery, entry.pictures);
+
+        cameraBtn.addEventListener("click", () => fileInput.click());
+        fileInput.addEventListener("change", async () => {
+          const file = fileInput.files?.[0];
+          fileInput.value = "";
+          if (!file) return;
+
+          try {
+            const dataUrl = await readFileAsDataUrl(file);
+            if (isSaved && savedId) {
+              const result = await addPhoto(savedId, index, dataUrl);
+              entry.pictures = result.pictures;
+            } else {
+              entry.pictures = [...entry.pictures, dataUrl];
+              if (itinerary) {
+                itinerary.events[index].pictures = entry.pictures;
+                localStorage.setItem("unserious-itinerary", JSON.stringify(itinerary));
+              }
+            }
+            updateGallery(gallery, entry.pictures);
+          } catch (err) {
+            showError(err instanceof Error ? err.message : "Failed to attach photo.");
+          }
+        });
+
+        card.appendChild(fileInput);
+        card.appendChild(gallery);
         timelineEl.appendChild(card);
       });
     }
@@ -159,6 +239,7 @@ import PageHeader from "../components/PageHeader.astro";
       try {
         const result = await uploadItinerary(user.email, itinerary);
         isSaved = true;
+        savedId = result.itinerary_id;
         saveBtn.textContent = "Saved!";
         // Update URL so refreshing shows the saved version
         const url = new URL(window.location.href);

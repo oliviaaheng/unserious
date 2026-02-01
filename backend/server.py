@@ -28,7 +28,15 @@ else:
     from db.setup import setup, DB_PATH
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:4321", "http://127.0.0.1:4321", "http://localhost:5000", "http://127.0.0.1:5000"])
+CORS(
+    app,
+    origins=[
+        "http://localhost:4321",
+        "http://127.0.0.1:4321",
+        "http://localhost:5000",
+        "http://127.0.0.1:5000",
+    ],
+)
 
 
 def get_db():
@@ -130,7 +138,8 @@ def get_itineraries():
 
     if TESTING:
         ids = [
-            iid for iid, val in _mock_db["itineraries"].items()
+            iid
+            for iid, val in _mock_db["itineraries"].items()
             if val["user_email"] == email
         ]
         return jsonify(ids)
@@ -196,6 +205,46 @@ def fetch_itinerary():
         db.close()
 
     return jsonify({"events": events})
+
+
+@app.route("/add_photo", methods=["POST"])
+def add_photo():
+    data = request.get_json()
+    itinerary_id = data["itinerary_id"]
+    event_index = data["event_index"]
+    photo = data["photo"]
+
+    if TESTING:
+        entry = _mock_db["itineraries"].get(itinerary_id)
+        if not entry:
+            return jsonify({"error": "Itinerary not found"}), 404
+        if event_index >= len(entry["events"]):
+            return jsonify({"error": "Event not found"}), 404
+        event = entry["events"][event_index]
+        event.setdefault("pictures", []).append(photo)
+        return jsonify({"status": "OK", "pictures": event["pictures"]})
+
+    db = get_db()
+    try:
+        event_row = db.execute(
+            "SELECT id FROM events WHERE itinerary_id = ? AND sort_order = ?",
+            (itinerary_id, event_index),
+        ).fetchone()
+        if not event_row:
+            return jsonify({"error": "Event not found"}), 404
+        db.execute(
+            "INSERT INTO pictures (event_id, url) VALUES (?, ?)",
+            (event_row["id"], photo),
+        )
+        db.commit()
+        pic_rows = db.execute(
+            "SELECT url FROM pictures WHERE event_id = ? ORDER BY created_at",
+            (event_row["id"],),
+        ).fetchall()
+    finally:
+        db.close()
+
+    return jsonify({"status": "OK", "pictures": [p["url"] for p in pic_rows]})
 
 
 @app.route("/update_itinerary", methods=["POST"])

@@ -84,3 +84,15 @@ export function getItineraries(email: string): Promise<string[]> {
 export function fetchItinerary(itineraryId: string): Promise<Itinerary> {
   return post<Itinerary>("/fetch_itinerary", { itinerary_id: itineraryId });
 }
+
+export function addPhoto(
+  itineraryId: string,
+  eventIndex: number,
+  photo: string,
+): Promise<{ status: string; pictures: string[] }> {
+  return post<{ status: string; pictures: string[] }>("/add_photo", {
+    itinerary_id: itineraryId,
+    event_index: eventIndex,
+    photo,
+  });
+}
