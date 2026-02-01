@@ -29,6 +29,20 @@ const { public: isPublic = false } = Astro.props;
       "rounded-full border border-[#d4c4b5] bg-white/60 px-4 py-1.5 text-sm font-medium text-[#5e4b41] transition hover:bg-white";
     container.appendChild(tripsLink);
 
+    const profileLink = document.createElement("a");
+    profileLink.href = "/profile";
+    profileLink.textContent = "My Profile";
+    profileLink.className =
+      "rounded-full border border-[#d4c4b5] bg-white/60 px-4 py-1.5 text-sm font-medium text-[#5e4b41] transition hover:bg-white";
+    container.appendChild(profileLink);
+
+    const exploreLink = document.createElement("a");
+    exploreLink.href = "/explore-page";
+    exploreLink.textContent = "Explore";
+    exploreLink.className =
+      "rounded-full border border-[#d4c4b5] bg-white/60 px-4 py-1.5 text-sm font-medium text-[#5e4b41] transition hover:bg-white";
+    container.appendChild(exploreLink);
+
     const btn = document.createElement("button");
     btn.textContent = "Sign out";
     btn.className =

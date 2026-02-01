@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout public>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <main class="flex flex-1 flex-col items-center justify-start px-5 pb-14 pt-10 sm:px-8">
+    <div class="flex w-full max-w-md flex-col items-center gap-6 text-center">
+      <!-- Avatar -->
+      <div class="h-28 w-28 rounded-full bg-[#e6e1dd] flex items-center justify-center text-3xl font-semibold text-[#2b2623]">
+        <span id="avatar-initials">?</span>
+      </div>
+
+      <!-- Name -->
+      <h1
+        id="name"
+        class="font-['Fraunces'] text-3xl sm:text-4xl"
+      >
+        Profile
+      </h1>
+
+      <!-- Username / email -->
+      <p id="username" class="text-sm text-[#5e4b41]">
+        —
+      </p>
+
+
+      <!-- Stats -->
+    <div class="mt-4 flex w-full justify-center rounded-xl bg-[#f3f1ef] py-4">
+      <div class="flex flex-row items-center gap-6">
+        <div class="flex flex-col items-center">
+        <span id="itineraries" class="text-lg font-semibold">0</span>
+        <span class="text-xs text-[#5e4b41]">Itineraries</span>
+        </div>
+        <div class="flex flex-col items-center">
+        <span id="followers" class="text-lg font-semibold">0</span>
+        <span class="text-xs text-[#5e4b41]">Followers</span>
+        </div>
+        <div class="flex flex-col items-center">
+        <span id="following" class="text-lg font-semibold">0</span>
+        <span class="text-xs text-[#5e4b41]">Following</span>
+        </div>
+      </div>
+    </div>
+
+      <!-- Actions -->
+      <div class="mt-6 flex gap-4">
+        <a
+          href="/constraints"
+          class="rounded-full bg-[#2b2623] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#3d3330]"
+        >
+          Plan a Day
+        </a>
+      </div>
+    </div>
+    <br>
+    <div class="mx-auto flex max-w-4xl flex-col gap-8">
+      <h2 class="text-2xl font-semibold text-[#2b2623]">Saved itineraries</h2>
+
+      <div id="trips-loading" class="flex items-center justify-center py-16">
+        <p class="text-sm text-[#7f6b5c]">Loading your trips&hellip;</p>
+      </div>
+
+      <p id="trips-error" class="hidden text-sm font-medium text-red-600"></p>
+
+      <div id="trips-list" class="hidden flex-col gap-4"></div>
+
+      <div id="trips-empty" class="hidden flex-col items-center gap-4 py-12 text-center">
+        <p class="text-base text-[#5e4b41]">You haven't saved any itineraries yet.</p>
+        <a
+          href="/constraints"
+          class="inline-flex items-center justify-center rounded-full bg-[#2b2623] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#3d3330]"
+        >
+          Plan a Day
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    import { getUser } from "../scripts/auth";
+    import { getItineraries } from "../scripts/api";
+
+    const user = getUser();
+
+    if (user) {
+      const nameEl = document.getElementById("name");
+      const usernameEl = document.getElementById("username");
+      const initialsEl = document.getElementById("avatar-initials");
+
+      if (nameEl) nameEl.textContent = user.name;
+      if (usernameEl) usernameEl.textContent = user.email;
+
+      if (initialsEl && user.name) {
+        initialsEl.textContent = user.name
+          .split(" ")
+          .map((n) => n[0])
+          .join("")
+          .slice(0, 2)
+          .toUpperCase();
+      }
+
+      // Fetch and set itineraries count
+      const itinerariesEl = document.getElementById("itineraries");
+      const tripsLoadingEl = document.getElementById("trips-loading");
+      const tripsErrorEl = document.getElementById("trips-error");
+      const tripsListEl = document.getElementById("trips-list");
+      const tripsEmptyEl = document.getElementById("trips-empty");
+
+      if (itinerariesEl) {
+        getItineraries(user.email)
+          .then((ids) => {
+            itinerariesEl.textContent = ids.length.toString();
+            
+            // Hide loading state
+            if (tripsLoadingEl) tripsLoadingEl.classList.add("hidden");
+            
+            // Show empty or list state
+            if (ids.length === 0) {
+              if (tripsEmptyEl) tripsEmptyEl.classList.remove("hidden");
+            } else {
+              if (tripsListEl) tripsListEl.classList.remove("hidden", "flex-col");
+              if (tripsListEl) tripsListEl.classList.add("flex");
+            }
+          })
+          .catch((err) => {
+            console.error("Failed to fetch itineraries:", err);
+            if (tripsLoadingEl) tripsLoadingEl.classList.add("hidden");
+            if (tripsErrorEl) {
+              tripsErrorEl.classList.remove("hidden");
+              tripsErrorEl.textContent = "Failed to load itineraries";
+            }
+          });
+      }
+
+      // Set followers and following to 0 (no social features yet)
+      const followersEl = document.getElementById("followers");
+      if (followersEl) followersEl.textContent = "0";
+
+      const followingEl = document.getElementById("following");
+      if (followingEl) followingEl.textContent = "0";
+    } else {
+      window.location.href = "/login";
+    }
+  </script>
+</Layout>
