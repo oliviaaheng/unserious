@@ -1,7 +1,7 @@
 from openai import OpenAI
 from pydantic import BaseModel
 from dotenv import load_dotenv
-from typing import Optional, Tuple
+from typing import Optional
 from dataclasses import dataclass
 
 load_dotenv()
@@ -92,12 +92,14 @@ class Itinerary(BaseModel):
 
 def itinerary(
         constraints: Constraints,
-        event_preferences: list[Tuple[Event, float]]) -> Optional[Itinerary]:
+        event_preferences: list[dict]) -> Optional[Itinerary]:
     event_preferences = sorted(event_preferences,
-                               key=lambda x: x[1],
+                               key=lambda x: x["score"],
                                reverse=True)
     event_str = ""
-    for event, score in event_preferences:
+    for entry in event_preferences:
+        event = Event(**entry["event"])
+        score = entry["score"]
         event_str += f"- {event.name} (Score: {score}) [{event.description}\n"
 
     response = client.responses.parse(
