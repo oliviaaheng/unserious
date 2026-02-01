@@ -1,0 +1,200 @@
+{
+  "events": [
+    {
+      "event": {
+        "name": "Prospect Terrace Park",
+        "description": "Scenic overlook with views of downtown Providence and the river.",
+        "address": "Prospect Terrace Park, Providence, RI",
+        "website": "https://www.providenceri.gov/prospect-terrace/",
+        "image": "https://example.com/prospect-terrace.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T08:00:00-05:00",
+      "end": "2026-02-01T09:00:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Blue State Coffee",
+        "description": "Student-friendly café near campus.",
+        "address": "300 Thayer St, Providence, RI",
+        "website": "https://www.bluestatecoffee.com",
+        "image": "https://example.com/blue-state.jpg",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-02-01T09:15:00-05:00",
+      "end": "2026-02-01T10:00:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "RISD Museum",
+        "description": "Art and design museum with rotating exhibitions.",
+        "address": "20 N Main St, Providence, RI",
+        "website": "https://risdmuseum.org",
+        "image": "https://example.com/risd.jpg",
+        "cost": "Free (Student ID)",
+        "category": "Museum"
+      },
+      "start": "2026-02-01T10:30:00-05:00",
+      "end": "2026-02-01T12:00:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "The Den",
+        "description": "Casual dining spot on campus.",
+        "address": "201 Thayer St, Providence, RI",
+        "website": "https://dining.brown.edu",
+        "image": "https://example.com/the-den.jpg",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-02-01T12:15:00-05:00",
+      "end": "2026-02-01T13:00:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Brown University Campus",
+        "description": "Historic campus with walkable green spaces.",
+        "address": "Brown University, Providence, RI",
+        "website": "https://www.brown.edu",
+        "image": "https://example.com/brown-campus.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T13:15:00-05:00",
+      "end": "2026-02-01T14:15:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "John Hay Library",
+        "description": "Quiet study space with historic architecture.",
+        "address": "20 Prospect St, Providence, RI",
+        "website": "https://library.brown.edu",
+        "image": "https://example.com/john-hay.jpg",
+        "cost": "Free",
+        "category": "Study"
+      },
+      "start": "2026-02-01T14:30:00-05:00",
+      "end": "2026-02-01T15:30:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Thayer Street Record Shop",
+        "description": "Independent shop selling vinyl and music merch.",
+        "address": "Thayer St, Providence, RI",
+        "website": "https://example.com/record-store",
+        "image": "https://example.com/records.jpg",
+        "cost": "Free",
+        "category": "Music"
+      },
+      "start": "2026-02-01T15:45:00-05:00",
+      "end": "2026-02-01T16:30:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "India Point Park",
+        "description": "Waterfront park along the Providence River.",
+        "address": "India Point Park, Providence, RI",
+        "website": "https://www.providenceri.gov/india-point-park/",
+        "image": "https://example.com/india-point.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T16:45:00-05:00",
+      "end": "2026-02-01T17:45:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "East Side Pockets",
+        "description": "Mediterranean street food near campus.",
+        "address": "278 Thayer St, Providence, RI",
+        "website": "https://www.eastsidepockets.com",
+        "image": "https://example.com/pockets.jpg",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-02-01T18:00:00-05:00",
+      "end": "2026-02-01T18:45:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Student Music Venue",
+        "description": "Live performances by local and student musicians.",
+        "address": "Near Brown University, Providence, RI",
+        "website": "https://example.com/student-music",
+        "image": "https://example.com/live-music.jpg",
+        "cost": "$",
+        "category": "Music"
+      },
+      "start": "2026-02-01T19:00:00-05:00",
+      "end": "2026-02-01T20:30:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Providence Riverwalk",
+        "description": "Pedestrian paths along the river.",
+        "address": "Providence Riverwalk, Providence, RI",
+        "website": "https://www.providenceriverwalk.org",
+        "image": "https://example.com/riverwalk.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T20:45:00-05:00",
+      "end": "2026-02-01T21:30:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Small Point Café",
+        "description": "Late-night café for coffee and desserts.",
+        "address": "230 Westminster St, Providence, RI",
+        "website": "https://example.com/small-point",
+        "image": "https://example.com/coffee-night.jpg",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-02-01T21:45:00-05:00",
+      "end": "2026-02-01T22:30:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "College Hill",
+        "description": "Residential area with quiet streets and views.",
+        "address": "College Hill, Providence, RI",
+        "website": "https://example.com/college-hill",
+        "image": "https://example.com/stargazing.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T22:45:00-05:00",
+      "end": "2026-02-01T23:15:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "69 Brown St",
+        "description": "Return to lodging and rest.",
+        "address": "69 Brown St, Providence, RI",
+        "website": "https://example.com/lodging",
+        "image": "https://example.com/lodging.jpg",
+        "cost": "Free",
+        "category": "Rest"
+      },
+      "start": "2026-02-01T23:30:00-05:00",
+      "end": "2026-02-02T00:00:00-05:00",
+      "pictures": []
+    }
+  ]
+}
