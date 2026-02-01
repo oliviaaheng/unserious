@@ -1,2 +1,84 @@
 @import "tailwindcss";
 
+/* ── Loading overlay ── */
+
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loading-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes loading-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes loading-fade {
+  0%, 10% { opacity: 0; }
+  20%, 80% { opacity: 1; }
+  90%, 100% { opacity: 0; }
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #f7efe8, #f0e4d6 45%, #e4d3c0 100%);
+}
+
+.loading-overlay.hidden {
+  display: none;
+}
+
+.loading-rings {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  animation: loading-pulse 3s ease-in-out infinite;
+}
+
+.loading-rings span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+}
+
+.loading-rings span:nth-child(1) {
+  inset: 0;
+  border-top-color: #d9824c;
+  border-bottom-color: #d9824c;
+  animation: loading-spin 2.4s linear infinite;
+}
+
+.loading-rings span:nth-child(2) {
+  inset: 14px;
+  border-left-color: #e6b587;
+  border-right-color: #e6b587;
+  animation: loading-spin-reverse 1.8s linear infinite;
+}
+
+.loading-rings span:nth-child(3) {
+  inset: 28px;
+  border-top-color: #d9824c;
+  border-right-color: #d9824c;
+  animation: loading-spin 1.2s linear infinite;
+}
+
+.loading-flavor {
+  margin-top: 2rem;
+  font-family: "Fraunces", serif;
+  font-size: 1.125rem;
+  color: #7f6b5c;
+  min-height: 1.75rem;
+  text-align: center;
+  animation: loading-fade 3s ease-in-out infinite;
+}

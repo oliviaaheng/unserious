@@ -57,6 +57,15 @@ import ResetButton from "../components/ResetButton.astro";
     </div>
   </main>
 
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-rings">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <p id="loading-flavor" class="loading-flavor"></p>
+  </div>
+
   <script>
     import "../scripts/ranking";
   </script>

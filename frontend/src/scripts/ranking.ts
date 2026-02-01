@@ -1,5 +1,42 @@
 import { generateItinerary, type Event, type ScoredEvent, type Constraints } from "./api";
 
+const FLAVOR_TEXTS = [
+  "Wandering through hidden gems\u2026",
+  "Charting your perfect day\u2026",
+  "Asking the locals for tips\u2026",
+  "Finding the best-kept secrets\u2026",
+  "Mapping out your adventure\u2026",
+  "Curating moments worth remembering\u2026",
+  "Discovering something special\u2026",
+  "Plotting the scenic route\u2026",
+];
+
+let flavorInterval: ReturnType<typeof setInterval> | null = null;
+
+function showLoading() {
+  const overlay = document.getElementById("loading-overlay");
+  const flavorEl = document.getElementById("loading-flavor");
+  if (!overlay || !flavorEl) return;
+
+  let index = Math.floor(Math.random() * FLAVOR_TEXTS.length);
+  flavorEl.textContent = FLAVOR_TEXTS[index];
+  overlay.classList.remove("hidden");
+  flavorInterval = setInterval(() => {
+    index = (index + 1) % FLAVOR_TEXTS.length;
+    flavorEl.textContent = FLAVOR_TEXTS[index];
+    flavorEl.style.animation = "none";
+    flavorEl.offsetHeight; // trigger reflow
+    flavorEl.style.animation = "";
+  }, 3000);
+}
+
+function hideLoading() {
+  const overlay = document.getElementById("loading-overlay");
+  if (overlay) overlay.classList.add("hidden");
+  if (flavorInterval) clearInterval(flavorInterval);
+  flavorInterval = null;
+}
+
 type RatingState = {
   ratings: Record<string, number>;
   comparisons: number;
@@ -121,12 +158,14 @@ function initializeRanking(root: HTMLElement, activities: Activity[]) {
 
       genBtn.disabled = true;
       genBtn.textContent = "Generating itinerary\u2026";
+      showLoading();
 
       try {
         const itinerary = await generateItinerary(constraints, scoredEvents);
         localStorage.setItem("unserious-itinerary", JSON.stringify(itinerary));
         window.location.href = "/itinerary";
       } catch (err) {
+        hideLoading();
         if (genError) {
           genError.textContent =
             err instanceof Error ? err.message : "Something went wrong. Please try again.";
