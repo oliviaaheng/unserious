@@ -15,7 +15,6 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 # )
 # print(response.text)
 
-
 def get_travel_json(user_input: dict):
     # Use types.GenerateContentConfig for strict parameter naming
     config = types.GenerateContentConfig(
@@ -30,7 +29,6 @@ def get_travel_json(user_input: dict):
                     "description": {"type": "STRING"},
                     "address": {"type": "STRING"},
                     "website": {"type": "STRING"},
-                    "image": {"type": "STRING"},
                     "cost": {"type": "STRING"},
                     "category": {"type": "STRING"}
                 },
