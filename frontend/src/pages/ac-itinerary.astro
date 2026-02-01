@@ -1,0 +1,221 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const itineraryData = {
+  "events": [
+    {
+      "event": {
+        "name": "Atlantic City Beach",
+        "description": "Wide sandy beach suitable for families and kids.",
+        "address": "Atlantic City Beach, Atlantic City, NJ",
+        "website": "https://www.atlanticcitynj.com",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/crm/meetac/DSC05078_3BD8352C-9FEB-9B5A-0B984B327A4337F1-3bd8325be9c76b6_3bd83d33-ef52-dae0-dbd4b4366ce952c6.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-07-01T08:30:00-04:00",
+      "end": "2026-07-01T10:00:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Steel Pier",
+        "description": "Family-friendly rides and games on the pier.",
+        "address": "1000 Boardwalk, Atlantic City, NJ",
+        "website": "https://www.steelpier.com",
+        "image": "https://image-tc.galaxy.tf/wijpeg-a9orhk76coaq4h0t180nn8pwq/steel-pier-at-night_standard.jpg?crop=2%2C0%2C1917%2C1438",
+        "cost": "$",
+        "category": "Attraction"
+      },
+      "start": "2026-07-01T11:30:00-04:00",
+      "end": "2026-07-01T12:30:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Dave and Busters Atlantic City",
+        "description": "A premier eatertainment chain featuring a large, modern arcade, a full-service restaurant, and a sports bar with big-screen TVs.",
+        "address": "2120 Atlantic Ave Suite 912, Atlantic City, NJ 08401",
+        "website": "https://www.daveandbusters.com/us/en/about/locations/atlantic-city",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/17/b7/06/caption.jpg?w=1200&h=1200&s=1",
+        "cost": "$$",
+        "category": "Entertainment"
+      },
+      "start": "2026-07-01T15:00:00-04:00",
+      "end": "2026-07-01T15:45:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "North Beach Mini Golf",
+        "description": "Outdoor mini golf near the boardwalk.",
+        "address": "120 Euclid Ave, Atlantic City, NJ 08401",
+        "website": "https://www.northbeachminigolf.com/",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo7BihOrfABu4xAVAP5hXnrZTeUfd133_qwgjBOTexjr7OjOOHteeSIXUSdlL6PbWJkFi067ztEFt9dBwHrzqZlE2yAfCAY46HkUPDnGYm8irhcWtLe3iydPnjJyopCkUHyMegjig=s1360-w1360-h1020-rw",
+        "cost": "$",
+        "category": "Attraction"
+      },
+      "start": "2026-07-01T17:00:00-04:00",
+      "end": "2026-07-01T17:45:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Hard Rock Cafe Atlantic City",
+        "description": "Vegetarian-friendly menu options and music theme.",
+        "address": "1000 Boardwalk, Atlantic City, NJ",
+        "website": "https://cafe.hardrock.com/atlantic-city/#utm_source=Google&utm_medium=Yext&utm_campaign=Listings",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOqHaYk7H4d_dEqRVuySFssogtPDdAJM00szoxr=s1360-w1360-h1020-rw",
+        "cost": "$$",
+        "category": "Food"
+      },
+      "start": "2026-07-01T18:00:00-04:00",
+      "end": "2026-07-01T19:00:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Tanger Outlets",
+        "description": "Visit Tanger for a unique shopping experience. Find your favorite brands and experience exceptional guest service. Shop with unbeatable value at Tanger.",
+        "address": "1931 Atlantic Ave, Atlantic City, NJ 08401",
+        "website": "https://www.tanger.com/atlanticcity",
+        "image": "https://images.contentstack.io/v3/assets/blt1b696824a455b27c/blt23fa796e76a5dacd/6453e1b07c3d46065e8d0602/atlantic_city.jpg",
+        "cost": "$$",
+        "category": "Shopping"
+      },
+      "start": "2026-07-01T19:15:00-04:00",
+      "end": "2026-07-01T20:00:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Sugar Factory",
+        "description": "A high-energy, celebrity-favored American brasserie known for its Instagram-worthy, over-the-top desserts, smoking candy goblets, and colorful, decadent comfort food",
+        "address": "Atlantic City Boardwalk, Atlantic City, NJ",
+        "website": "https://sf1.sugarfactory.com/",
+        "image": "https://bloximages.chicago2.vip.townnews.com/atlanticcityweekly.com/content/tncms/assets/v3/editorial/d/fa/dfa349b6-4c7e-58ea-9c3a-f7c429e4cbb8/5bce158df3e97.image.jpg?resize=500%2C500",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-07-01T21:00:00-04:00",
+      "end": "2026-07-01T21:30:00-04:00",
+      "pictures": []
+    }
+  ]
+};
+
+function formatTime(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleTimeString('en-US', { 
+    hour: 'numeric', 
+    minute: '2-digit',
+    hour12: true 
+  });
+}
+
+function formatTimeRange(start: string, end: string) {
+  return `${formatTime(start)} - ${formatTime(end)}`;
+}
+---
+
+<Layout public>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <main class="flex flex-1 justify-center px-5 pb-14 pt-10 sm:px-8">
+    <div class="w-full max-w-4xl">
+      <!-- Header -->
+      <div class="mb-8">
+        <a href="/explore-page" class="mb-4 inline-flex items-center text-sm text-[#5e4b41] hover:text-[#2b2623]">
+          ← Back to Explore
+        </a>
+        <h1 class="mb-2 font-['Fraunces'] text-4xl sm:text-5xl">
+          One Day in Atlantic City
+        </h1>
+        <p class="text-lg text-[#5e4b41]">
+          {itineraryData.events.length} activities planned
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="space-y-6">
+        {itineraryData.events.map((item, index) => (
+          <div class="flex gap-6">
+            <!-- Timeline indicator -->
+            <div class="flex flex-col items-center">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#2b2623] font-semibold text-white">
+                {index + 1}
+              </div>
+              {index < itineraryData.events.length - 1 && (
+                <div class="w-0.5 flex-1 bg-[#e6e1dd] my-2"></div>
+              )}
+            </div>
+
+            <!-- Event card -->
+            <div class="flex-1 pb-8">
+              <div class="rounded-xl border border-[#e6e1dd] bg-white shadow-sm overflow-hidden">
+                <!-- Image -->
+                {item.event.image && (
+                  <img 
+                    src={item.event.image} 
+                    alt={item.event.name}
+                    class="h-48 w-full object-cover"
+                  />
+                )}
+
+                <!-- Content -->
+                <div class="p-5">
+                  <!-- Time and category -->
+                  <div class="mb-3 flex flex-wrap items-center gap-3 text-sm">
+                    <span class="font-medium text-[#2b2623]">
+                      {formatTimeRange(item.start, item.end)}
+                    </span>
+                    <span class="rounded-full bg-[#f3f1ef] px-3 py-1 text-xs font-medium">
+                      {item.event.category}
+                    </span>
+                    <span class="text-[#5e4b41]">
+                      {item.event.cost}
+                    </span>
+                  </div>
+
+                  <!-- Name -->
+                  <h2 class="mb-2 text-xl font-semibold">
+                    {item.event.name}
+                  </h2>
+
+                  <!-- Description -->
+                  <p class="mb-3 text-[#5e4b41]">
+                    {item.event.description}
+                  </p>
+
+                  <!-- Address -->
+                  <p class="mb-3 text-sm text-[#5e4b41]">
+                    📍 {item.event.address}
+                  </p>
+
+                  <!-- Website link -->
+                  {item.event.website && (
+                    <a 
+                      href={item.event.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center text-sm font-medium text-[#2b2623] hover:underline"
+                    >
+                      Visit website →
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

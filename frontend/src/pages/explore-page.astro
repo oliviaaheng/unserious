@@ -37,23 +37,25 @@ import Layout from "../layouts/Layout.astro";
       return [
         {
           user: {
-            name: "Alex Johnson",
-            username: "alexj"
+            name: "Olivia Heng",
+            username: "oliviah"
           },
           itinerary: {
-            title: "One Day in NYC",
-            destination: "New York City",
-            eventCount: 5
+            title: "One Day in AC",
+            destination: "Atlantic City",
+            jsonPath: "/ac-itinerary",
+            eventCount: 7
           }
         },
         {
           user: {
-            name: "Maya Chen",
-            username: "mayac"
+            name: "Edward Wibowo",
+            username: "edwardw"
           },
           itinerary: {
-            title: "SF Coffee Crawl",
-            destination: "San Francisco",
+            title: "Portugal Coffee Crawl",
+            destination: "Portugal",
+            jsonPath: "/fixtures/porto_itinerary.json",
             eventCount: 4
           }
         }
@@ -90,10 +92,7 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <div class="mt-4 text-right">
-            <a
-              href="/itinerary"
-              class="text-sm font-medium text-[#2b2623] hover:underline"
-            >
+            <a href="${data.itinerary.jsonPath}" target="_blank">
               View itinerary →
             </a>
           </div>
