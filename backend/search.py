@@ -1,130 +1,121 @@
-import os
-from google import genai
-from google.genai import types
+from openai import OpenAI
+from pydantic import BaseModel
 from dotenv import load_dotenv
+from typing import Optional, Tuple
+from dataclasses import dataclass
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = OpenAI()
+
+## DATA CLASSES
 
 
-def get_travel_json(user_input: dict):
-    config = types.GenerateContentConfig(
-        response_mime_type="application/json",
-        response_schema={
-            "type": "ARRAY",
-            "items": {
-                "type": "OBJECT",
-                "properties": {
-                    "name": {"type": "STRING"},
-                    "description": {"type": "STRING"},
-                    "address": {"type": "STRING"},
-                    "website": {"type": "STRING"},
-                    "image": {"type": "STRING"},
-                    "cost": {"type": "STRING"},
-                    "category": {"type": "STRING"},
-                },
-                "required": [
-                    "name",
-                    "description",
-                    "address",
-                    "website",
-                    "image",
-                    "cost",
-                    "category",
-                ],
+@dataclass
+class Constraints:
+    destination: str
+    date_of_travel: str
+    address: str
+    freeform_text: str
+
+
+def build_constraints(data) -> Constraints:
+    return Constraints(
+        destination=data.get("destination", ""),
+        date_of_travel=data.get("date_of_travel", ""),
+        address=data.get("address", ""),
+        freeform_text=data.get("freeform_text", ""),
+    )
+
+
+## MODELS
+
+
+class Event(BaseModel):
+    name: str
+    description: str
+    address: str
+    website: str
+    image: str
+    cost: str
+    category: str
+
+
+class GeneratedEvents(BaseModel):
+    events: list[Event]
+
+
+def events(constraints: Constraints) -> Optional[GeneratedEvents]:
+
+    response = client.responses.parse(
+        model="gpt-4o-2024-08-06",
+        input=[
+            {
+                "role":
+                "system",
+                "content":
+                "You are an expert travel guide who is all-knowledgeable about things to do in different destinations around the world. Generate 14 travel recommendations given some constraints. Make sure to follow the constraints!",
             },
-        },
-    )
-
-    response = client.models.generate_content(
-        model="gemini-3-flash-preview",
-        contents=(
-            f"Generate 14 travel recommendations given the constraints of "
-            f"{user_input['destination']} on {user_input['date_of_travel']}. "
-            f"Keep in mind the following: {user_input['freeform_text']}."
-        ),
-        config=config,
-    )
-
-    return response.text
-
-
-def generate_itinerary_json(constraints: dict, scored_events: list):
-    events_description = "\n".join(
-        f"- {e['event']['name']} (score: {e['score']}): {e['event'].get('description', '')}"
-        for e in scored_events
-    )
-
-    config = types.GenerateContentConfig(
-        response_mime_type="application/json",
-        response_schema={
-            "type": "OBJECT",
-            "properties": {
-                "events": {
-                    "type": "ARRAY",
-                    "items": {
-                        "type": "OBJECT",
-                        "properties": {
-                            "event": {
-                                "type": "OBJECT",
-                                "properties": {
-                                    "name": {"type": "STRING"},
-                                    "description": {"type": "STRING"},
-                                    "address": {"type": "STRING"},
-                                    "website": {"type": "STRING"},
-                                    "image": {"type": "STRING"},
-                                    "cost": {"type": "STRING"},
-                                    "category": {"type": "STRING"},
-                                },
-                                "required": [
-                                    "name",
-                                    "description",
-                                    "address",
-                                    "website",
-                                    "image",
-                                    "cost",
-                                    "category",
-                                ],
-                            },
-                            "start": {"type": "STRING"},
-                            "end": {"type": "STRING"},
-                            "pictures": {
-                                "type": "ARRAY",
-                                "items": {"type": "STRING"},
-                            },
-                        },
-                        "required": ["event", "start", "end", "pictures"],
-                    },
-                }
+            {
+                "role":
+                "user",
+                "content":
+                f"I am going to {constraints.destination} on {constraints.date_of_travel}. I will be staying around {constraints.address}, so find places nearby. Also, importantly, keep in mind the following: {constraints.freeform_text}"
             },
-            "required": ["events"],
-        },
+        ],
+        text_format=GeneratedEvents,
     )
 
-    response = client.models.generate_content(
-        model="gemini-3-flash-preview",
-        contents=(
-            f"Create a timed travel itinerary for {constraints['destination']} "
-            f"on {constraints['date_of_travel']}. "
-            f"The traveler is staying at {constraints.get('address', 'N/A')}. "
-            f"Preferences: {constraints.get('freeform_text', 'none')}.\n\n"
-            f"Arrange the following events into a day itinerary with start/end times "
-            f"(ISO 8601 datetime strings). Higher-scored events should be prioritized. "
-            f"Include relevant image URLs in the pictures array if available.\n\n"
-            f"Events:\n{events_description}"
-        ),
-        config=config,
+    return response.output_parsed
+
+
+class EventDetails(BaseModel):
+    name: str
+    description: str
+    address: str
+    website: str
+    image: str
+    cost: str
+    category: str
+
+
+class EventEntry(BaseModel):
+    event: EventDetails
+    start: str
+    end: str
+    pictures: list[str]
+
+
+class Itinerary(BaseModel):
+    events: list[EventEntry]
+
+
+def itinerary(
+        constraints: Constraints,
+        event_preferences: list[Tuple[Event, float]]) -> Optional[Itinerary]:
+    event_preferences = sorted(event_preferences,
+                               key=lambda x: x[1],
+                               reverse=True)
+    event_str = ""
+    for event, score in event_preferences:
+        event_str += f"- {event.name} (Score: {score}) [{event.description}\n"
+
+    response = client.responses.parse(
+        model="gpt-4o-2024-08-06",
+        input=[
+            {
+                "role":
+                "system",
+                "content":
+                "You are an expert travel planner who creates detailed itineraries based on user preferences and event"
+            },
+            {
+                "role":
+                "user",
+                "content":
+                f"Given the following constraints: {constraints}, and the following ranked events: {event_str}, generate a detailed itinerary including event timings and pictures."
+            },
+        ],
+        text_format=Itinerary,
     )
-
-    return response.text
-
-
-if __name__ == "__main__":
-    input_data = {
-        "destination": "Porto, Portugal",
-        "date_of_travel": "May 9, 2026",
-        "address": "130 Waterman St. Providence, RI 02906",
-        "freeform_text": "i am a relaxed traveler who likes starting my day around 10 am",
-    }
-    print(get_travel_json(input_data))
+    return response.output_parsed
