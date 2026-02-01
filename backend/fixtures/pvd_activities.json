@@ -6,7 +6,7 @@
         "description": "Scenic overlook with views of downtown Providence and the river.",
         "address": "Prospect Terrace Park, Providence, RI",
         "website": "https://www.providenceri.gov/prospect-terrace/",
-        "image": "https://example.com/prospect-terrace.jpg",
+        "image": "https://i.redd.it/r7wibj1xskn61.jpg",
         "cost": "Free",
         "category": "Nature"
       },
@@ -16,11 +16,11 @@
     },
     {
       "event": {
-        "name": "Blue State Coffee",
-        "description": "Student-friendly café near campus.",
-        "address": "300 Thayer St, Providence, RI",
-        "website": "https://www.bluestatecoffee.com",
-        "image": "https://example.com/blue-state.jpg",
+        "name": "Coffee Exchange",
+        "description": "Student-friendly café near Brown University's campus.",
+        "address": "207 Wickenden St, Providence, RI 02903",
+        "website": "https://www.thecoffeeexchange.com/",
+        "image": "https://www.golocalprov.com/cache/images/cached/cache/images/remote/https_s3.amazonaws.com/media.golocalprov.com/Morgan_Coffee_Exchange_DEC_2022_1_1944_1458_90.jpg",
         "cost": "$",
         "category": "Food"
       },
@@ -34,7 +34,7 @@
         "description": "Art and design museum with rotating exhibitions.",
         "address": "20 N Main St, Providence, RI",
         "website": "https://risdmuseum.org",
-        "image": "https://example.com/risd.jpg",
+        "image": "https://www.ccri.edu/art/images/risd-1.jpg",
         "cost": "Free (Student ID)",
         "category": "Museum"
       },
@@ -44,11 +44,11 @@
     },
     {
       "event": {
-        "name": "The Den",
-        "description": "Casual dining spot on campus.",
-        "address": "201 Thayer St, Providence, RI",
-        "website": "https://dining.brown.edu",
-        "image": "https://example.com/the-den.jpg",
+        "name": "Den Den Café Asiana",
+        "description": "A casual cafe counter serving Korean & Japanese favorites in roomy digs",
+        "address": "161 Benefit St, Providence, RI 02903",
+        "website": "https://www.dendenhospitality.com/dendencafe",
+        "image": "https://www.thefoodlens.com/uploads/2019/02/DEN-DEN-ASIANA-CAFE_PROVIDENCE_THE-FOOD-LENS_BRIAN-SAMUELS-PHOTOGRAPHY_MARCH-2019-0577-copy-768x512.jpg",
         "cost": "$",
         "category": "Food"
       },
@@ -62,7 +62,7 @@
         "description": "Historic campus with walkable green spaces.",
         "address": "Brown University, Providence, RI",
         "website": "https://www.brown.edu",
-        "image": "https://example.com/brown-campus.jpg",
+        "image": "https://www.usnews.com/dims4/USNEWS/7072f85/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2Fd1%2Ffe377768fbb26f45239bd82b4b41d0%2F20191020_COMM_coheamarketing121.png",
         "cost": "Free",
         "category": "Nature"
       },
@@ -76,7 +76,7 @@
         "description": "Quiet study space with historic architecture.",
         "address": "20 Prospect St, Providence, RI",
         "website": "https://library.brown.edu",
-        "image": "https://example.com/john-hay.jpg",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/7c/01/1c/alcoves.jpg?w=300&h=300&s=1",
         "cost": "Free",
         "category": "Study"
       },
@@ -86,11 +86,11 @@
     },
     {
       "event": {
-        "name": "Thayer Street Record Shop",
-        "description": "Independent shop selling vinyl and music merch.",
-        "address": "Thayer St, Providence, RI",
-        "website": "https://example.com/record-store",
-        "image": "https://example.com/records.jpg",
+        "name": "Avon Cinema",
+        "description": "Historic movie theatre located on the East Side of Providence, specializing in the exhibition of films from foreign, independent and documentary.",
+        "address": "260 Thayer St, Providence, RI",
+        "website": "https://www.avoncinema.com/",
+        "image": "https://snworksceo.imgix.net/bdh/0e1f5f77-cf14-4ad2-afad-2da380828d67.sized-1000x1000.jpg?w=1000",
         "cost": "Free",
         "category": "Music"
       },
@@ -104,7 +104,7 @@
         "description": "Waterfront park along the Providence River.",
         "address": "India Point Park, Providence, RI",
         "website": "https://www.providenceri.gov/india-point-park/",
-        "image": "https://example.com/india-point.jpg",
+        "image": "https://friendsofindiapointpark.org/wp-content/uploads/2024/09/Screen-Shot-2024-09-04-at-4.51.32-PM.png",
         "cost": "Free",
         "category": "Nature"
       },
@@ -118,7 +118,7 @@
         "description": "Mediterranean street food near campus.",
         "address": "278 Thayer St, Providence, RI",
         "website": "https://www.eastsidepockets.com",
-        "image": "https://example.com/pockets.jpg",
+        "image": "https://www.ediningexpress.com/live20/business_data/images/617/menu_items/falafel_wrap.jpg",
         "cost": "$",
         "category": "Food"
       },
@@ -128,12 +128,12 @@
     },
     {
       "event": {
-        "name": "Student Music Venue",
-        "description": "Live performances by local and student musicians.",
-        "address": "Near Brown University, Providence, RI",
-        "website": "https://example.com/student-music",
-        "image": "https://example.com/live-music.jpg",
-        "cost": "$",
+        "name": "Courtland Club",
+        "description": "A cocktail bar, restaurant, social club and performance venue. Live Jazz every Sunday, as well as DJ sets most other nights.",
+        "address": "51 Courtland St, Providence, RI 02909",
+        "website": "https://www.courtlandclub.com",
+        "image": "https://thevendry.com/cdn-cgi/image/width=1920,quality=75,fit=contain,metadata=none,format=auto/https%3A%2F%2Fs3.us-east-1.amazonaws.com%2Fuploads.thevendry.co%2F36209%2F1689686215257_37115002_206273456743758_582758157906870272_n.jpg",
+        "cost": "$$$",
         "category": "Music"
       },
       "start": "2026-02-01T19:00:00-05:00",
@@ -145,8 +145,8 @@
         "name": "Providence Riverwalk",
         "description": "Pedestrian paths along the river.",
         "address": "Providence Riverwalk, Providence, RI",
-        "website": "https://www.providenceriverwalk.org",
-        "image": "https://example.com/riverwalk.jpg",
+        "website": "https://www.goprovidence.com/neighborhoods/riverwalk-providence/",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepQiea1b9eRFRE-nNSibVH91xo4jEJ2n2PnYZH1VV7ODGW4PdhKinVuqdIYkyMXA8xWw2beHI27_zltc_E4eq9cdR4yJioR7SEiMikQ3A4mw-lASp41ij_vRBinfoSTgKEJerhO=s1360-w1360-h1020-rw",
         "cost": "Free",
         "category": "Nature"
       },
@@ -157,10 +157,10 @@
     {
       "event": {
         "name": "Small Point Café",
-        "description": "Late-night café for coffee and desserts.",
+        "description": "Funky, eco-friendly stop for pastries & organic sandwiches, plus espresso drinks & cold brew coffee.",
         "address": "230 Westminster St, Providence, RI",
-        "website": "https://example.com/small-point",
-        "image": "https://example.com/coffee-night.jpg",
+        "website": "https://www.smallpointcafe.com/",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo-ftADcwZ-stj5_X0zD4FRMD5REFwMdI6CGlAimRF87LD_GBGklH1P3IG8N6ElPxvdBC7cIDtItoxNKwiujN5IoMcSK1ys0h6eU_qaaxk7PJuvR_vNzOOWV9Yvj98yAC2wZtl4=s1360-w1360-h1020-rw",
         "cost": "$",
         "category": "Food"
       },
@@ -170,13 +170,13 @@
     },
     {
       "event": {
-        "name": "College Hill",
-        "description": "Residential area with quiet streets and views.",
-        "address": "College Hill, Providence, RI",
-        "website": "https://example.com/college-hill",
-        "image": "https://example.com/stargazing.jpg",
-        "cost": "Free",
-        "category": "Nature"
+        "name": "The Providence Rink",
+        "description": "Lively ice rink featuring bumper cars, rental skates and penguin skate aids.",
+        "address": "2 Kennedy Plaza, Providence, RI 02903",
+        "website": "https://theprovidencerink.com/",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipMosoQQV-AX4E4OFyt6sR0NBNuIPjVCAet3V5Qr=s1360-w1360-h1020-rw",
+        "cost": "$",
+        "category": "Leisure"
       },
       "start": "2026-02-01T22:45:00-05:00",
       "end": "2026-02-01T23:15:00-05:00",
@@ -184,13 +184,13 @@
     },
     {
       "event": {
-        "name": "69 Brown St",
-        "description": "Return to lodging and rest.",
-        "address": "69 Brown St, Providence, RI",
-        "website": "https://example.com/lodging",
-        "image": "https://example.com/lodging.jpg",
-        "cost": "Free",
-        "category": "Rest"
+        "name": "Roger Williams Park Zoo",
+        "description": "The Zoo contains more than 800 animals in natural settings from a total of 160 species from around the world.",
+        "address": "1000 Elmwood Ave, Providence, RI 02907",
+        "website": "http://www.rwpzoo.org/",
+        "image": "https://pvdeye.org/wp-content/uploads/2025/03/pc0305-1.jpg",
+        "cost": "$",
+        "category": "Leisure"
       },
       "start": "2026-02-01T23:30:00-05:00",
       "end": "2026-02-02T00:00:00-05:00",

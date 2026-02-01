@@ -1,0 +1,102 @@
+{
+  "events": [
+    {
+      "event": {
+        "name": "RISD Museum",
+        "description": "Art and design museum with rotating exhibitions.",
+        "address": "20 N Main St, Providence, RI",
+        "website": "https://risdmuseum.org",
+        "image": "https://www.ccri.edu/art/images/risd-1.jpg",
+        "cost": "Free (Student ID)",
+        "category": "Museum"
+      },
+      "start": "2026-02-01T10:30:00-05:00",
+      "end": "2026-02-01T12:00:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Brown University Campus",
+        "description": "Historic campus with walkable green spaces.",
+        "address": "Brown University, Providence, RI",
+        "website": "https://www.brown.edu",
+        "image": "https://www.usnews.com/dims4/USNEWS/7072f85/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2Fd1%2Ffe377768fbb26f45239bd82b4b41d0%2F20191020_COMM_coheamarketing121.png",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T13:15:00-05:00",
+      "end": "2026-02-01T14:15:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Avon Cinema",
+        "description": "Historic movie theatre located on the East Side of Providence, specializing in the exhibition of films from foreign, independent and documentary.",
+        "address": "260 Thayer St, Providence, RI",
+        "website": "https://www.avoncinema.com/",
+        "image": "https://snworksceo.imgix.net/bdh/0e1f5f77-cf14-4ad2-afad-2da380828d67.sized-1000x1000.jpg?w=1000",
+        "cost": "Free",
+        "category": "Music"
+      },
+      "start": "2026-02-01T15:45:00-05:00",
+      "end": "2026-02-01T16:30:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "India Point Park",
+        "description": "Waterfront park along the Providence River.",
+        "address": "India Point Park, Providence, RI",
+        "website": "https://www.providenceri.gov/india-point-park/",
+        "image": "https://friendsofindiapointpark.org/wp-content/uploads/2024/09/Screen-Shot-2024-09-04-at-4.51.32-PM.png",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-02-01T16:45:00-05:00",
+      "end": "2026-02-01T17:45:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "East Side Pockets",
+        "description": "Mediterranean street food near campus.",
+        "address": "278 Thayer St, Providence, RI",
+        "website": "https://www.eastsidepockets.com",
+        "image": "https://www.ediningexpress.com/live20/business_data/images/617/menu_items/falafel_wrap.jpg",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-02-01T18:00:00-05:00",
+      "end": "2026-02-01T18:45:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "The Providence Rink",
+        "description": "Lively ice rink featuring bumper cars, rental skates and penguin skate aids.",
+        "address": "2 Kennedy Plaza, Providence, RI 02903",
+        "website": "https://theprovidencerink.com/",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipMosoQQV-AX4E4OFyt6sR0NBNuIPjVCAet3V5Qr=s1360-w1360-h1020-rw",
+        "cost": "$",
+        "category": "Leisure"
+      },
+      "start": "2026-02-01T22:45:00-05:00",
+      "end": "2026-02-01T23:15:00-05:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Roger Williams Park Zoo",
+        "description": "The Zoo contains more than 800 animals in natural settings from a total of 160 species from around the world.",
+        "address": "1000 Elmwood Ave, Providence, RI 02907",
+        "website": "http://www.rwpzoo.org/",
+        "image": "https://pvdeye.org/wp-content/uploads/2025/03/pc0305-1.jpg",
+        "cost": "$",
+        "category": "Leisure"
+      },
+      "start": "2026-02-01T23:30:00-05:00",
+      "end": "2026-02-02T00:00:00-05:00",
+      "pictures": []
+    }
+  ]
+}
