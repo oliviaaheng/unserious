@@ -6,7 +6,7 @@
         "description": "Wide sandy beach suitable for families and kids.",
         "address": "Atlantic City Beach, Atlantic City, NJ",
         "website": "https://www.atlanticcitynj.com",
-        "image": "",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/crm/meetac/DSC05078_3BD8352C-9FEB-9B5A-0B984B327A4337F1-3bd8325be9c76b6_3bd83d33-ef52-dae0-dbd4b4366ce952c6.jpg",
         "cost": "Free",
         "category": "Nature"
       },
@@ -20,7 +20,7 @@
         "description": "Flat, stroller-friendly boardwalk along the beach.",
         "address": "Atlantic City Boardwalk, Atlantic City, NJ",
         "website": "https://www.atlanticcitynj.com",
-        "image": "",
+        "image": "https://image-tc.galaxy.tf/wijpeg-cbrsqfpa45105kdchy6q8cjwn/dji-0256-enhanced-nr.jpg",
         "cost": "Free",
         "category": "Nature"
       },
@@ -34,7 +34,7 @@
         "description": "Family-friendly rides and games on the pier.",
         "address": "1000 Boardwalk, Atlantic City, NJ",
         "website": "https://www.steelpier.com",
-        "image": "",
+        "image": "https://image-tc.galaxy.tf/wijpeg-a9orhk76coaq4h0t180nn8pwq/steel-pier-at-night_standard.jpg?crop=2%2C0%2C1917%2C1438",
         "cost": "$",
         "category": "Attraction"
       },
@@ -48,7 +48,7 @@
         "description": "Vegetarian and vegan comfort food.",
         "address": "2318 Arctic Ave, Atlantic City, NJ",
         "website": "https://www.greensandgrains.com/location/ventnor-nj/",
-        "image": "",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/c2/e5/60/great-vegan-food.jpg?w=500&h=-1&s=1",
         "cost": "$",
         "category": "Museum"
       },
@@ -62,7 +62,7 @@
         "description": "A premier eatertainment chain featuring a large, modern arcade, a full-service restaurant, and a sports bar with big-screen TVs.",
         "address": "2120 Atlantic Ave Suite 912, Atlantic City, NJ 08401",
         "website": "https://www.daveandbusters.com/us/en/about/locations/atlantic-city",
-        "image": "",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/17/b7/06/caption.jpg?w=1200&h=1200&s=1",
         "cost": "$$",
         "category": "Entertainment"
       },
@@ -75,8 +75,8 @@
         "name": "Central Pier Arcade",
         "description": "Classic arcade games suitable for kids.",
         "address": "1400 Boardwalk, Atlantic City, NJ",
-        "website": "",
-        "image": "",
+        "website": "https://centralpierarcade.com/",
+        "image": "https://assets.simpleviewinc.com/sv-atlantic-city/image/fetch/c_limit,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/meetac/aracade-games-prizes-people-fb-central-pier_CBBA1613-9641-495A-A84C7D8FE7D795F5-cbba1553b5e8d97_cbba20db-0304-6fef-29669a3db6366d4b.jpg",
         "cost": "$",
         "category": "Entertainment"
       },
@@ -90,7 +90,7 @@
         "description": "Outdoor mini golf near the boardwalk.",
         "address": "120 Euclid Ave, Atlantic City, NJ 08401",
         "website": "https://www.northbeachminigolf.com/",
-        "image": "",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo7BihOrfABu4xAVAP5hXnrZTeUfd133_qwgjBOTexjr7OjOOHteeSIXUSdlL6PbWJkFi067ztEFt9dBwHrzqZlE2yAfCAY46HkUPDnGYm8irhcWtLe3iydPnjJyopCkUHyMegjig=s1360-w1360-h1020-rw",
         "cost": "$",
         "category": "Attraction"
       },
@@ -104,7 +104,7 @@
         "description": "Vegetarian-friendly menu options and music theme.",
         "address": "1000 Boardwalk, Atlantic City, NJ",
         "website": "https://cafe.hardrock.com/atlantic-city/#utm_source=Google&utm_medium=Yext&utm_campaign=Listings",
-        "image": "",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOqHaYk7H4d_dEqRVuySFssogtPDdAJM00szoxr=s1360-w1360-h1020-rw",
         "cost": "$$",
         "category": "Food"
       },
@@ -118,7 +118,7 @@
         "description": "Visit Tanger for a unique shopping experience. Find your favorite brands and experience exceptional guest service. Shop with unbeatable value at Tanger.",
         "address": "1931 Atlantic Ave, Atlantic City, NJ 08401",
         "website": "https://www.tanger.com/atlanticcity",
-        "image": "",
+        "image": "https://images.contentstack.io/v3/assets/blt1b696824a455b27c/blt23fa796e76a5dacd/6453e1b07c3d46065e8d0602/atlantic_city.jpg",
         "cost": "$$",
         "category": "Shopping"
       },
@@ -132,7 +132,7 @@
         "description": "Borgata Hotel Casino & Spa is a premier luxury resort in Atlantic City, offering an unbeatable combination of world-class gaming, fine dining, and top-tier entertainment. ",
         "address": "1 Borgata Way Atlantic City, NJ 08401",
         "website": "https://borgata.mgmresorts.com/en.html",
-        "image": "https://example.com/sunset-beach.jpg",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/6a/44/03/borgata-casino.jpg?w=900&h=500&s=1",
         "cost": "$$$",
         "category": "Casino"
       },
@@ -146,7 +146,7 @@
         "description": "A high-energy, celebrity-favored American brasserie known for its Instagram-worthy, over-the-top desserts, smoking candy goblets, and colorful, decadent comfort food",
         "address": "Atlantic City Boardwalk, Atlantic City, NJ",
         "website": "https://sf1.sugarfactory.com/",
-        "image": "",
+        "image": "https://bloximages.chicago2.vip.townnews.com/atlanticcityweekly.com/content/tncms/assets/v3/editorial/d/fa/dfa349b6-4c7e-58ea-9c3a-f7c429e4cbb8/5bce158df3e97.image.jpg?resize=500%2C500",
         "cost": "$",
         "category": "Food"
       },
@@ -160,7 +160,7 @@
         "description": "Relax and swim at the hotel pool.",
         "address": "500 Boardwalk, Atlantic City, NJ 08401",
         "website": "https://www.theoceanac.com/",
-        "image": "",
+        "image": "https://images.trvl-media.com/lodging/6000000/5560000/5558400/5558306/02f744f8.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
         "cost": "$$$",
         "category": "Casino"
       },
@@ -174,7 +174,7 @@
         "description": "Return to hotel and rest.",
         "address": "2831 Boardwalk, Atlantic City, NJ 08401",
         "website": "https://www.caesars.com/tropicana-ac/things-to-do/attractions/imax",
-        "image": "",
+        "image": "https://www.caesars.com/content/dam/empire/meetings/properties/tropicana-atlantic-city-ac/1920x1080/caesars-means-business-tropicana-atlantic-city-2-1920x1080.jpg.transform/featured-img/image.jpg",
         "cost": "$",
         "category": "Entertainment"
       },

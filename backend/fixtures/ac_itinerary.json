@@ -1,0 +1,102 @@
+{
+  "events": [
+    {
+      "event": {
+        "name": "Atlantic City Beach",
+        "description": "Wide sandy beach suitable for families and kids.",
+        "address": "Atlantic City Beach, Atlantic City, NJ",
+        "website": "https://www.atlanticcitynj.com",
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/crm/meetac/DSC05078_3BD8352C-9FEB-9B5A-0B984B327A4337F1-3bd8325be9c76b6_3bd83d33-ef52-dae0-dbd4b4366ce952c6.jpg",
+        "cost": "Free",
+        "category": "Nature"
+      },
+      "start": "2026-07-01T08:30:00-04:00",
+      "end": "2026-07-01T10:00:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Steel Pier",
+        "description": "Family-friendly rides and games on the pier.",
+        "address": "1000 Boardwalk, Atlantic City, NJ",
+        "website": "https://www.steelpier.com",
+        "image": "https://image-tc.galaxy.tf/wijpeg-a9orhk76coaq4h0t180nn8pwq/steel-pier-at-night_standard.jpg?crop=2%2C0%2C1917%2C1438",
+        "cost": "$",
+        "category": "Attraction"
+      },
+      "start": "2026-07-01T11:30:00-04:00",
+      "end": "2026-07-01T12:30:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Dave and Busters Atlantic City",
+        "description": "A premier eatertainment chain featuring a large, modern arcade, a full-service restaurant, and a sports bar with big-screen TVs.",
+        "address": "2120 Atlantic Ave Suite 912, Atlantic City, NJ 08401",
+        "website": "https://www.daveandbusters.com/us/en/about/locations/atlantic-city",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/17/b7/06/caption.jpg?w=1200&h=1200&s=1",
+        "cost": "$$",
+        "category": "Entertainment"
+      },
+      "start": "2026-07-01T15:00:00-04:00",
+      "end": "2026-07-01T15:45:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "North Beach Mini Golf",
+        "description": "Outdoor mini golf near the boardwalk.",
+        "address": "120 Euclid Ave, Atlantic City, NJ 08401",
+        "website": "https://www.northbeachminigolf.com/",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo7BihOrfABu4xAVAP5hXnrZTeUfd133_qwgjBOTexjr7OjOOHteeSIXUSdlL6PbWJkFi067ztEFt9dBwHrzqZlE2yAfCAY46HkUPDnGYm8irhcWtLe3iydPnjJyopCkUHyMegjig=s1360-w1360-h1020-rw",
+        "cost": "$",
+        "category": "Attraction"
+      },
+      "start": "2026-07-01T17:00:00-04:00",
+      "end": "2026-07-01T17:45:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Hard Rock Cafe Atlantic City",
+        "description": "Vegetarian-friendly menu options and music theme.",
+        "address": "1000 Boardwalk, Atlantic City, NJ",
+        "website": "https://cafe.hardrock.com/atlantic-city/#utm_source=Google&utm_medium=Yext&utm_campaign=Listings",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOqHaYk7H4d_dEqRVuySFssogtPDdAJM00szoxr=s1360-w1360-h1020-rw",
+        "cost": "$$",
+        "category": "Food"
+      },
+      "start": "2026-07-01T18:00:00-04:00",
+      "end": "2026-07-01T19:00:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Tanger Outlets",
+        "description": "Visit Tanger for a unique shopping experience. Find your favorite brands and experience exceptional guest service. Shop with unbeatable value at Tanger.",
+        "address": "1931 Atlantic Ave, Atlantic City, NJ 08401",
+        "website": "https://www.tanger.com/atlanticcity",
+        "image": "https://images.contentstack.io/v3/assets/blt1b696824a455b27c/blt23fa796e76a5dacd/6453e1b07c3d46065e8d0602/atlantic_city.jpg",
+        "cost": "$$",
+        "category": "Shopping"
+      },
+      "start": "2026-07-01T19:15:00-04:00",
+      "end": "2026-07-01T20:00:00-04:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Sugar Factory",
+        "description": "A high-energy, celebrity-favored American brasserie known for its Instagram-worthy, over-the-top desserts, smoking candy goblets, and colorful, decadent comfort food",
+        "address": "Atlantic City Boardwalk, Atlantic City, NJ",
+        "website": "https://sf1.sugarfactory.com/",
+        "image": "https://bloximages.chicago2.vip.townnews.com/atlanticcityweekly.com/content/tncms/assets/v3/editorial/d/fa/dfa349b6-4c7e-58ea-9c3a-f7c429e4cbb8/5bce158df3e97.image.jpg?resize=500%2C500",
+        "cost": "$",
+        "category": "Food"
+      },
+      "start": "2026-07-01T21:00:00-04:00",
+      "end": "2026-07-01T21:30:00-04:00",
+      "pictures": []
+    }
+  ]
+}
