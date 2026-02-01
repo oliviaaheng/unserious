@@ -26,7 +26,7 @@ def generate_activities():
     constraints = build_constraints(request.get_json())
     events = search.events(constraints)
     if events:
-        return jsonify(events.model_dump()), 200
+        return jsonify([e.model_dump() for e in events.events]), 200
     else:
         return jsonify({"error": "Failed to generate events"}), 500
 
