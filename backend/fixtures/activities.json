@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Livraria Lello",
+    "description": "One of the world's most beautiful bookstores, featuring stunning neo-Gothic architecture and a famous red staircase.",
+    "address": "R. das Carmelitas 144, 4050-161 Porto, Portugal",
+    "website": "https://www.livrarialello.pt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Livraria_Lello_-_Porto.jpg/800px-Livraria_Lello_-_Porto.jpg",
+    "cost": "5 EUR entry",
+    "category": "Culture"
+  },
+  {
+    "name": "Clerigos Tower",
+    "description": "Iconic baroque bell tower offering panoramic views of Porto after climbing 240 steps.",
+    "address": "R. de Sao Filipe de Nery, 4050-546 Porto, Portugal",
+    "website": "https://www.torredosclerigos.pt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Torre_dos_Cl%C3%A9rigos_2.jpg/800px-Torre_dos_Cl%C3%A9rigos_2.jpg",
+    "cost": "8 EUR",
+    "category": "Sightseeing"
+  },
+  {
+    "name": "Ribeira District Walk",
+    "description": "Stroll along the colorful Ribeira waterfront, a UNESCO World Heritage Site along the Douro River.",
+    "address": "Cais da Ribeira, Porto, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Porto_ribeira.jpg/800px-Porto_ribeira.jpg",
+    "cost": "Free",
+    "category": "Sightseeing"
+  },
+  {
+    "name": "Dom Luis I Bridge",
+    "description": "Double-deck iron bridge spanning the Douro River with walkable upper deck and sweeping views.",
+    "address": "Ponte de Dom Luis I, Porto, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Porto_Dom_Luis_I.jpg/800px-Porto_Dom_Luis_I.jpg",
+    "cost": "Free",
+    "category": "Sightseeing"
+  },
+  {
+    "name": "Sandeman Port Wine Cellar Tour",
+    "description": "Guided tour and tasting at one of the most famous port wine cellars in Vila Nova de Gaia.",
+    "address": "Largo Miguel Bombarda 3, 4430-175 Vila Nova de Gaia, Portugal",
+    "website": "https://www.sandeman.com",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sandeman_cellars.jpg/800px-Sandeman_cellars.jpg",
+    "cost": "15 EUR",
+    "category": "Food & Drink"
+  },
+  {
+    "name": "Bolhao Market",
+    "description": "Renovated traditional market hall with fresh produce, local cheeses, cured meats, and flowers.",
+    "address": "R. Formosa 322, 4000-248 Porto, Portugal",
+    "website": "https://www.mercadobolhao.pt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Mercado_do_Bolhao.jpg/800px-Mercado_do_Bolhao.jpg",
+    "cost": "Free entry",
+    "category": "Food & Drink"
+  },
+  {
+    "name": "Sao Bento Railway Station",
+    "description": "Working train station famous for its entrance hall decorated with 20,000 azulejo tiles depicting Portuguese history.",
+    "address": "Praca de Almeida Garrett, 4000-069 Porto, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/S%C3%A3o_Bento_Railway_Station.jpg/800px-S%C3%A3o_Bento_Railway_Station.jpg",
+    "cost": "Free",
+    "category": "Culture"
+  },
+  {
+    "name": "Serralves Museum",
+    "description": "Contemporary art museum set in beautiful gardens and a striking modernist building by Alvaro Siza.",
+    "address": "R. Dom Joao de Castro 210, 4150-417 Porto, Portugal",
+    "website": "https://www.serralves.pt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Serralves.jpg/800px-Serralves.jpg",
+    "cost": "20 EUR",
+    "category": "Culture"
+  },
+  {
+    "name": "Francesinha at Cafe Santiago",
+    "description": "Try Porto's iconic Francesinha sandwich, a hearty dish with layers of meat, cheese, and spicy sauce.",
+    "address": "R. de Passos Manuel 226, 4000-382 Porto, Portugal",
+    "website": "https://www.cafesantiago.pt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Francesinha.jpg/800px-Francesinha.jpg",
+    "cost": "12-15 EUR",
+    "category": "Food & Drink"
+  },
+  {
+    "name": "Douro River Cruise",
+    "description": "Relaxing six-bridge cruise along the Douro River with views of Porto and Vila Nova de Gaia.",
+    "address": "Cais da Ribeira, Porto, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Douro_river_cruise.jpg/800px-Douro_river_cruise.jpg",
+    "cost": "15 EUR",
+    "category": "Sightseeing"
+  },
+  {
+    "name": "Porto Cathedral (Se do Porto)",
+    "description": "Romanesque cathedral dating to the 12th century with a Gothic cloister decorated with azulejo tiles.",
+    "address": "Terreiro da Se, 4050-573 Porto, Portugal",
+    "website": "https://www.diocese-porto.pt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Se_do_Porto.jpg/800px-Se_do_Porto.jpg",
+    "cost": "3 EUR (cloister)",
+    "category": "Culture"
+  },
+  {
+    "name": "Crystal Palace Gardens",
+    "description": "Beautiful public gardens with stunning viewpoints over the Douro River and a modernist pavilion.",
+    "address": "R. de Dom Manuel II, 4050-346 Porto, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Jardins_do_Palacio_de_Cristal.jpg/800px-Jardins_do_Palacio_de_Cristal.jpg",
+    "cost": "Free",
+    "category": "Nature"
+  },
+  {
+    "name": "Matosinhos Beach & Seafood",
+    "description": "Sandy beach near Porto followed by fresh grilled seafood at the many beachside restaurants.",
+    "address": "Praia de Matosinhos, Matosinhos, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Matosinhos_beach.jpg/800px-Matosinhos_beach.jpg",
+    "cost": "20-30 EUR (meal)",
+    "category": "Food & Drink"
+  },
+  {
+    "name": "Igreja do Carmo",
+    "description": "18th-century church famous for its large side wall covered in intricate blue-and-white azulejo tiles.",
+    "address": "R. do Carmo, 4050-164 Porto, Portugal",
+    "website": "https://www.visitporto.travel",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Igreja_do_Carmo.jpg/800px-Igreja_do_Carmo.jpg",
+    "cost": "Free",
+    "category": "Culture"
+  }
+]

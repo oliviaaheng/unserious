@@ -1,4 +1,5 @@
 import json
+import os
 import sqlite3
 import uuid
 import sys
@@ -10,8 +11,21 @@ from flask_cors import CORS
 # Allow imports from sibling packages
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from backend.search import get_travel_json, generate_itinerary_json
-from db.setup import setup, DB_PATH
+TESTING = os.getenv("TESTING") == "1"
+
+FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
+
+# In testing mode, load fixture data and skip external dependencies
+if TESTING:
+    with open(FIXTURES_DIR / "activities.json") as f:
+        _fixture_activities = json.load(f)
+    with open(FIXTURES_DIR / "itinerary.json") as f:
+        _fixture_itinerary = json.load(f)
+    with open(FIXTURES_DIR / "db.json") as f:
+        _mock_db = json.load(f)
+else:
+    from backend.search import get_travel_json, generate_itinerary_json
+    from db.setup import setup, DB_PATH
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:4321", "http://127.0.0.1:4321", "http://localhost:5000", "http://127.0.0.1:5000"])
@@ -24,8 +38,40 @@ def get_db():
     return conn
 
 
+def _insert_events(db, itinerary_id, events):
+    """Insert events and their pictures for an itinerary. Used by upload and update."""
+    for i, entry in enumerate(events):
+        event = entry["event"]
+        cursor = db.execute(
+            """INSERT INTO events
+               (itinerary_id, name, description, address, website, image, cost, category, start_time, end_time, sort_order)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (
+                itinerary_id,
+                event.get("name", ""),
+                event.get("description", ""),
+                event.get("address", ""),
+                event.get("website", ""),
+                event.get("image", ""),
+                event.get("cost", ""),
+                event.get("category", ""),
+                entry.get("start", ""),
+                entry.get("end", ""),
+                i,
+            ),
+        )
+        event_id = cursor.lastrowid
+        for pic_url in entry.get("pictures", []):
+            db.execute(
+                "INSERT INTO pictures (event_id, url) VALUES (?, ?)",
+                (event_id, pic_url),
+            )
+
+
 @app.route("/generate_activities", methods=["POST"])
 def generate_activities():
+    if TESTING:
+        return jsonify(_fixture_activities)
     constraints = request.get_json()
     raw = get_travel_json(constraints)
     events = json.loads(raw)
@@ -34,6 +80,8 @@ def generate_activities():
 
 @app.route("/generate_itinerary", methods=["POST"])
 def generate_itinerary():
+    if TESTING:
+        return jsonify(_fixture_itinerary)
     data = request.get_json()
     constraints = {
         "destination": data["destination"],
@@ -54,38 +102,20 @@ def upload_itinerary():
     itinerary = data["itinerary"]
     itinerary_id = str(uuid.uuid4())
 
+    if TESTING:
+        _mock_db["itineraries"][itinerary_id] = {
+            "user_email": email,
+            "events": itinerary["events"],
+        }
+        return jsonify({"itinerary_id": itinerary_id})
+
     db = get_db()
     try:
         db.execute(
             "INSERT INTO itineraries (id, user_email) VALUES (?, ?)",
             (itinerary_id, email),
         )
-        for i, entry in enumerate(itinerary["events"]):
-            event = entry["event"]
-            cursor = db.execute(
-                """INSERT INTO events
-                   (itinerary_id, name, description, address, website, image, cost, category, start_time, end_time, sort_order)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (
-                    itinerary_id,
-                    event.get("name", ""),
-                    event.get("description", ""),
-                    event.get("address", ""),
-                    event.get("website", ""),
-                    event.get("image", ""),
-                    event.get("cost", ""),
-                    event.get("category", ""),
-                    entry.get("start", ""),
-                    entry.get("end", ""),
-                    i,
-                ),
-            )
-            event_id = cursor.lastrowid
-            for pic_url in entry.get("pictures", []):
-                db.execute(
-                    "INSERT INTO pictures (event_id, url) VALUES (?, ?)",
-                    (event_id, pic_url),
-                )
+        _insert_events(db, itinerary_id, itinerary["events"])
         db.commit()
     finally:
         db.close()
@@ -97,6 +127,13 @@ def upload_itinerary():
 def get_itineraries():
     data = request.get_json()
     email = data["email"]
+
+    if TESTING:
+        ids = [
+            iid for iid, val in _mock_db["itineraries"].items()
+            if val["user_email"] == email
+        ]
+        return jsonify(ids)
 
     db = get_db()
     try:
@@ -114,6 +151,12 @@ def get_itineraries():
 def fetch_itinerary():
     data = request.get_json()
     itinerary_id = data["itinerary_id"]
+
+    if TESTING:
+        entry = _mock_db["itineraries"].get(itinerary_id)
+        if not entry:
+            return jsonify({"error": "Itinerary not found"}), 404
+        return jsonify({"events": entry["events"]})
 
     db = get_db()
     try:
@@ -162,6 +205,13 @@ def update_itinerary():
     itinerary_id = data["itinerary_id"]
     itinerary = data["itinerary"]
 
+    if TESTING:
+        entry = _mock_db["itineraries"].get(itinerary_id)
+        if not entry or entry["user_email"] != email:
+            return jsonify({"error": "Not found or unauthorized"}), 404
+        entry["events"] = itinerary["events"]
+        return jsonify({"status": "OK"})
+
     db = get_db()
     try:
         row = db.execute(
@@ -174,33 +224,7 @@ def update_itinerary():
         # Delete old events (pictures cascade-deleted)
         db.execute("DELETE FROM events WHERE itinerary_id = ?", (itinerary_id,))
 
-        # Insert new events
-        for i, entry in enumerate(itinerary["events"]):
-            event = entry["event"]
-            cursor = db.execute(
-                """INSERT INTO events
-                   (itinerary_id, name, description, address, website, image, cost, category, start_time, end_time, sort_order)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (
-                    itinerary_id,
-                    event.get("name", ""),
-                    event.get("description", ""),
-                    event.get("address", ""),
-                    event.get("website", ""),
-                    event.get("image", ""),
-                    event.get("cost", ""),
-                    event.get("category", ""),
-                    entry.get("start", ""),
-                    entry.get("end", ""),
-                    i,
-                ),
-            )
-            event_id = cursor.lastrowid
-            for pic_url in entry.get("pictures", []):
-                db.execute(
-                    "INSERT INTO pictures (event_id, url) VALUES (?, ?)",
-                    (event_id, pic_url),
-                )
+        _insert_events(db, itinerary_id, itinerary["events"])
         db.commit()
     finally:
         db.close()
@@ -208,8 +232,9 @@ def update_itinerary():
     return jsonify({"status": "OK"})
 
 
-# Ensure tables exist on startup
-setup()
+# Ensure tables exist on startup (skip in testing mode)
+if not TESTING:
+    setup()
 
 if __name__ == "__main__":
     app.run(debug=True)

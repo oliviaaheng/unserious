@@ -1,0 +1,102 @@
+{
+  "events": [
+    {
+      "event": {
+        "name": "Bolhao Market",
+        "description": "Renovated traditional market hall with fresh produce, local cheeses, cured meats, and flowers.",
+        "address": "R. Formosa 322, 4000-248 Porto, Portugal",
+        "website": "https://www.mercadobolhao.pt",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Mercado_do_Bolhao.jpg/800px-Mercado_do_Bolhao.jpg",
+        "cost": "Free entry",
+        "category": "Food & Drink"
+      },
+      "start": "2026-05-09T10:00:00",
+      "end": "2026-05-09T11:00:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Sao Bento Railway Station",
+        "description": "Working train station famous for its entrance hall decorated with 20,000 azulejo tiles.",
+        "address": "Praca de Almeida Garrett, 4000-069 Porto, Portugal",
+        "website": "https://www.visitporto.travel",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/S%C3%A3o_Bento_Railway_Station.jpg/800px-S%C3%A3o_Bento_Railway_Station.jpg",
+        "cost": "Free",
+        "category": "Culture"
+      },
+      "start": "2026-05-09T11:15:00",
+      "end": "2026-05-09T11:45:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Clerigos Tower",
+        "description": "Iconic baroque bell tower offering panoramic views of Porto after climbing 240 steps.",
+        "address": "R. de Sao Filipe de Nery, 4050-546 Porto, Portugal",
+        "website": "https://www.torredosclerigos.pt",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Torre_dos_Cl%C3%A9rigos_2.jpg/800px-Torre_dos_Cl%C3%A9rigos_2.jpg",
+        "cost": "8 EUR",
+        "category": "Sightseeing"
+      },
+      "start": "2026-05-09T12:00:00",
+      "end": "2026-05-09T12:45:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Francesinha at Cafe Santiago",
+        "description": "Try Porto's iconic Francesinha sandwich, a hearty dish with layers of meat, cheese, and spicy sauce.",
+        "address": "R. de Passos Manuel 226, 4000-382 Porto, Portugal",
+        "website": "https://www.cafesantiago.pt",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Francesinha.jpg/800px-Francesinha.jpg",
+        "cost": "12-15 EUR",
+        "category": "Food & Drink"
+      },
+      "start": "2026-05-09T13:00:00",
+      "end": "2026-05-09T14:00:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Ribeira District Walk",
+        "description": "Stroll along the colorful Ribeira waterfront, a UNESCO World Heritage Site along the Douro River.",
+        "address": "Cais da Ribeira, Porto, Portugal",
+        "website": "https://www.visitporto.travel",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Porto_ribeira.jpg/800px-Porto_ribeira.jpg",
+        "cost": "Free",
+        "category": "Sightseeing"
+      },
+      "start": "2026-05-09T14:30:00",
+      "end": "2026-05-09T15:30:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Douro River Cruise",
+        "description": "Relaxing six-bridge cruise along the Douro River with views of Porto and Vila Nova de Gaia.",
+        "address": "Cais da Ribeira, Porto, Portugal",
+        "website": "https://www.visitporto.travel",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Douro_river_cruise.jpg/800px-Douro_river_cruise.jpg",
+        "cost": "15 EUR",
+        "category": "Sightseeing"
+      },
+      "start": "2026-05-09T15:45:00",
+      "end": "2026-05-09T16:45:00",
+      "pictures": []
+    },
+    {
+      "event": {
+        "name": "Sandeman Port Wine Cellar Tour",
+        "description": "Guided tour and tasting at one of the most famous port wine cellars in Vila Nova de Gaia.",
+        "address": "Largo Miguel Bombarda 3, 4430-175 Vila Nova de Gaia, Portugal",
+        "website": "https://www.sandeman.com",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sandeman_cellars.jpg/800px-Sandeman_cellars.jpg",
+        "cost": "15 EUR",
+        "category": "Food & Drink"
+      },
+      "start": "2026-05-09T17:00:00",
+      "end": "2026-05-09T18:30:00",
+      "pictures": []
+    }
+  ]
+}
